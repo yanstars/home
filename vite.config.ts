@@ -15,9 +15,16 @@ import Unocss from 'unocss/vite'
 import Shiki from 'markdown-it-shiki'
 
 export default defineConfig({
+  server: {
+    proxy: {
+      '/api': 'http://43.140.205.51:7000',
+    },
+  },
   resolve: {
     alias: {
       '~/': `${path.resolve(__dirname, 'src')}/`,
+      'balm-ui-plus': 'balm-ui/dist/balm-ui-plus.esm.js',
+      'balm-ui-css': 'balm-ui/dist/balm-ui.css',
     },
   },
 

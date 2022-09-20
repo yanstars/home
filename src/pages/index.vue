@@ -8,51 +8,22 @@ const go = () => {
     router.push(`/hi/${encodeURIComponent(name)}`)
 }
 
-const { t } = useI18n()
+const getData = () => fetch('/api/hello')
+  .then(response => response.json())
+  .then((data) => {
+    console.error('remote count ', 1)
+  })
 </script>
 
 <template>
   <div>
-    <div text-4xl>
-      <div i-carbon-campsite inline-block />
-    </div>
-    <p>
-      <a rel="noreferrer" href="https://github.com/antfu/vitesse" target="_blank">
-        Vitesse
-      </a>
-    </p>
-    <p>
-      <em text-sm opacity-75>{{ t('intro.desc') }}</em>
-    </p>
-
-    <div py-4 />
-
-    <input
-      id="input"
-      v-model="name"
-      :placeholder="t('intro.whats-your-name')"
-      :aria-label="t('intro.whats-your-name')"
-      type="text"
-      autocomplete="false"
-      p="x4 y2"
-      w="250px"
-      text="center"
-      bg="transparent"
-      border="~ rounded gray-200 dark:gray-700"
-      outline="none active:none"
-      @keydown.enter="go"
-    >
-    <label class="hidden" for="input">{{ t('intro.whats-your-name') }}</label>
-
-    <div>
-      <button
-        btn m-3 text-sm
-        :disabled="!name"
-        @click="go"
-      >
-        {{ t('button.go') }}
-      </button>
-    </div>
+    <ui-textfield v-model="name" fullwidth placeholder="Subject" maxlength="40" with-counter />
+    <ui-button class="block mt-4" outlined @click="getData">
+      get data from remote!
+    </ui-button>
+    <ui-button class="block mt-4" outlined @click="go">
+      go to page /hi/?
+    </ui-button>
   </div>
 </template>
 

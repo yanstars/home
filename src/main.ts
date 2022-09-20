@@ -1,5 +1,7 @@
 import { ViteSSG } from 'vite-ssg'
 import { setupLayouts } from 'virtual:generated-layouts'
+import 'balm-ui-css'
+
 import App from './App.vue'
 import type { UserModule } from './types'
 import generatedRoutes from '~pages'
