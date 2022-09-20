@@ -8,10 +8,10 @@ const go = () => {
     router.push(`/hi/${encodeURIComponent(name)}`)
 }
 
-const getData = () => fetch('/api/hello')
+const getData = () => fetch('api/hello')
   .then(response => response.json())
   .then((data) => {
-    console.error('remote count ', 1)
+    console.error('remote data ', data)
   })
 </script>
 
