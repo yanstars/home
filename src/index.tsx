@@ -35,20 +35,20 @@ export default function App() {
   }, [])
 
   return <div className="h-full">
-    <div className="fixed z-10 bg-light-200 top-1/2 flex flex-col ">
+    {/* <div className="fixed z-10 bg-light-200 top-1/2 flex flex-col ">
       <Button size="small" onClick={pullData} variant="outlined"> Pull</Button>
       <Button size="small" onClick={commitData} variant="outlined"> Commit</Button>
       <Button size="small" onClick={pushData} variant="outlined"> Push</Button>
-    </div>
+    </div> */}
 
     <div className="tldraw">
       <Tldraw onMount={handleMount} />
     </div>
 
-
+{/* 
     <div className="fixed  bottom-2">
       <a href="https://beian.miit.gov.cn">京ICP备2022027961号-1</a>
-    </div>
+    </div> */}
   </div>
 
 }
